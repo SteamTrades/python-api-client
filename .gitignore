@@ -62,3 +62,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+/.travis.yml
+/git_push.sh
+/test-requirements.txt
+/test/
+/tox.ini

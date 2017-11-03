@@ -17,9 +17,8 @@ Python 2.7 and 3.4+
 If the python package is hosted on Github, you can install directly from Github
 
 ```sh
-pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
+pip install git+https://github.com/SteamTrades/python-api-client
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
 
 Then import the package:
 ```python
@@ -46,25 +45,24 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 from __future__ import print_function
-import time
+
 import steamtrades_api
 from steamtrades_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: Token
-steamtrades_api.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# steamtrades_api.configuration.api_key_prefix['Authorization'] = 'Bearer'
-# create an instance of the API class
+steamtrades_api.configuration.api_key['Authorization'] = 'YOUR API KEY HERE'
+steamtrades_api.configuration.api_key_prefix['Authorization'] = 'Token'
+
+# Create an instance of the API class
 api_instance = steamtrades_api.TradeApi()
 
 try:
-    # List supported games
-    api_response = api_instance.game_get()
+    # List my items
+    api_response = api_instance.item_mine_get()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling TradeApi->game_get: %s\n" % e)
-
+    print("Exception when calling TradeApi->item_mine_get: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
